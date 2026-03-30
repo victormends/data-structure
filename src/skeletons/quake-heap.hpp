@@ -24,10 +24,7 @@
 #include <vector>
 #include <list>
 #include <string>
-#include <iostream>
 
-using std::cout;
-using std::endl;
 using std::string;
 using std::vector;
 using std::list;
@@ -37,15 +34,7 @@ template<class T1, class T2>
 QuakeHeap<T1, T2>::Node::Node(T1 key, T2 value) { }
 
 template<class T1, class T2>
-QuakeHeap<T1, T2>::Node::Node(T1 key, Node* u, Node* v) { }
-
-template<class T1, class T2>
 QuakeHeap<T1, T2>::Locator::Locator(QuakeHeap<T1, T2>::Node* u) { }
-
-template<class T1, class T2>
-typename QuakeHeap<T1, T2>::Node* QuakeHeap<T1, T2>::Locator::GetNode() {
-  return &Node();
-}
 
 template<class T1, class T2>
 QuakeHeap<T1, T2>::QuakeHeap(int n_levels) { }
@@ -54,24 +43,14 @@ template<class T1, class T2>
 void QuakeHeap<T1, T2>::Clear() { }
 
 template<class T1, class T2>
-typename QuakeHeap<T1, T2>::Locator* QuakeHeap<T1, T2>::Insert(
+typename QuakeHeap<T1, T2>::Locator QuakeHeap<T1, T2>::Insert(
   T1 key,
   T2 value
-) {
-  return &Locator();
+  ) {
+  return Locator();
 }
 
 template<class T1, class T2>
-int QuakeHeap<T1, T2>::GetMaxLevel(Locator* ptr_loc) { int(); }
-
-template<class T1, class T2>
-T1 QuakeHeap<T1, T2>::GetMinKey() { T1(); }
-
-template<class T1, class T2>
-void QuakeHeap<T1, T2>::MergeTrees() { }
-
-template<class T1, class T2>
 vector<string> QuakeHeap<T1, T2>::ListHeap() {
-  vector<string> response;
-  return response;
+  return vector<string>();
 }

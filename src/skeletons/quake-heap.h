@@ -31,9 +31,16 @@ using std::string;
 using std::vector;
 using std::list;
 
+/**
+ * @brief QuakeHeap implementation skeleton.
+ * 
+ * A Quake Heap is a priority queue data structure that supports 
+ * mergeable heap operations and is developed as a simpler 
+ * alternative to Fibonacci Heaps.
+ */
 template<class T1, class T2>
 class QuakeHeap {
-    struct Node{
+    struct Node {
         T1 key;
         T2 value;
         int level;
@@ -42,44 +49,35 @@ class QuakeHeap {
         Node* parent;
 
         Node(T1, T2);
-
-        Node(T1, Node*, Node*);
     };
-
-    vector<int> node_counter;
-    vector<list<Node*>*> roots;
 
  public:
     struct Locator {
-      QuakeHeap<T1, T2>::Node* u;
-
-      explicit Locator(Node*);
-
-      Node* GetNode();
+        QuakeHeap<T1, T2>::Node* u;
+        explicit Locator(Node*);
     };
 
-    //  Constructor que irá criar uma Quake Heap
-    //  com um número definido de níveis
-    explicit QuakeHeap(int);
+    /**
+     * @brief Construct a new Quake Heap with a specified number of levels.
+     */
+    explicit QuakeHeap(int n_levels);
 
-    //  Irá apagar todos os nós salvos na heap e zerar a contagem
+    /**
+     * @brief Clears all nodes from the heap and resets counters.
+     */
     void Clear();
 
-    //  Irá criar um novo nó com (key, value) e adicionar na árvore
-    Locator* Insert(T1, T2);
+    /**
+     * @brief Inserts a new (key, value) pair into the heap and returns a Locator.
+     */
+    Locator Insert(T1 key, T2 value);
 
-    // Obtem o nível máximo do pai do nó que possui o mesmo valor
-    int GetMaxLevel(Locator*);
-
-    // Obtém a chave mínima na heap
-    T1 GetMinKey();
-
-    // Reorganiza a árvore
-    void MergeTrees();
-
+    /**
+     * @brief Lists the current state of the heap for verification.
+     */
     vector<string> ListHeap();
 };
 
-#include "quake_heap.hpp"
+#include "quake-heap.hpp"
 
 #endif  // QUAKE_HEAP_H_
